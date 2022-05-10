@@ -1,0 +1,78 @@
+<div class="container">
+
+  <h2 class="text-center">
+    Alkatrész Létrehozása
+  </h2>
+
+  <form #partForm="ngForm" (submit)="onSubmitPartForm()">
+    <div class="text-center default-box mx-auto">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label
+              for="partName">
+              Név
+            </label>
+            <input
+              id="partName"
+              type="text"
+              class="form-control col-12"
+              [(ngModel)]="part.name"
+              #nameField="ngModel"
+              name="name"
+              required
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label
+              for="partAmount">
+              Összeg
+            </label>
+            <input
+              id="partAmount"
+              type="number"
+              class="form-control col-12"
+              [(ngModel)]="part.amount"
+              #amountField="ngModel"
+              name="amount"
+              required
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label class=" mr-3" for="created_at">
+              Bevétel Időpont
+            </label>
+            <input
+              id="created_at"
+              #createdAtField="ngModel"
+              type="date"
+              name="created_at"
+              [(ngModel)]="part.created_at"
+              required
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="partForm.invalid"
+        >
+          Alkatrész mentése
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

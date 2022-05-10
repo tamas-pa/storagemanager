@@ -1,0 +1,17 @@
+.name-box {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 3px 0 #00000017;
+  margin-bottom: 20px;
+
+  h2 {
+    padding: 10px;
+    background: #343a40;
+    border-radius: 0 10px 0 10px;
+    color: white;
+  }
+
+  .description {
+    padding: 10px;
+  }
+}

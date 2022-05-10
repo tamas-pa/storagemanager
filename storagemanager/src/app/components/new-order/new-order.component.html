@@ -1,0 +1,135 @@
+<div class="container">
+  <h2 class="text-center">
+    Új rendelés
+  </h2>
+  <form #orderForm="ngForm" (submit)="onSubmitProductForm()">
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="name">
+            Név
+          </label>
+          <input
+            #nameField="ngModel"
+            id="name"
+            name="name"
+            type="text"
+            class="form-control"
+            required
+            [(ngModel)]="this.order.name"
+          >
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="phone">
+            Telefonszám
+          </label>
+          <input
+            #phoneField="ngModel"
+            id="phone"
+            name="phone"
+            type="text"
+            class="form-control"
+            required
+            [(ngModel)]="this.order.phone"
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="email">
+            Email
+          </label>
+          <input
+            #emailField="ngModel"
+            id="email"
+            name="email"
+            type="email"
+            class="form-control"
+            required
+            [(ngModel)]="this.order.email"
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="amount">
+            Darab
+          </label>
+          <input
+            #amountField="ngModel"
+            id="amount"
+            name="amount"
+            type="number"
+            class="form-control"
+            required
+            [min]="1"
+            [(ngModel)]="this.order.amount"
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <label>
+            Gyártmány
+          </label>
+          <input
+            [(ngModel)]="productId"
+            (change)="onProductPick()"
+            list="productList"
+            type="text"
+            #productIdField="ngModel"
+            name="productId"
+            class="form-control col-12"
+            required
+          >
+          <datalist id="productList">
+            <select>
+              <option [ngValue]="product.id" *ngFor="let product of products"
+                      [value]="product.id"> {{product.name}}
+              </option>
+            </select>
+          </datalist>
+
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selectedProduct">
+      <h3 class="text-center mt-3 mb-4">
+        Választott Termékneve: {{selectedProduct.name}}
+      </h3>
+    </div>
+    <div class="row" *ngIf="isAmountError">
+      <div class="col-12">
+        <p class="text-center text-danger">
+          Nincs megfelelő mennyiségű alkatrész raktáron
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="orderForm.invalid || !selectedProduct"
+        >
+          Rendelés mentése
+        </button>
+      </div>
+    </div>
+
+  </form>
+</div>
+

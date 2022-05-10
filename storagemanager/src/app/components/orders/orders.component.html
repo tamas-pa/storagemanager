@@ -1,0 +1,36 @@
+<div class="container">
+  <h2 class="text-center mb-4">
+    Rendelések
+  </h2>
+  <div class="text-center mb-3">
+    <button class="btn btn-primary" (click)="navigate('new-order')">Új rendelés</button>
+  </div>
+  <div class="row" *ngIf="!isLoading">
+    <div class="col-6 mb-3" *ngFor="let order of orders">
+      <div class="card p-2">
+        <p class="">
+          Rendelt termék neve: <span class="font-weight-bold">
+          {{order.Product.name}}
+        </span>
+        </p>
+        <p class="">
+          Rendelt mennyiség <span class="font-weight-bold">
+          {{order.amount}}
+        </span>
+        </p>
+        <p>
+          Név: <b>{{order.name}}</b>
+        </p>
+        <p>
+          Telefonszám: <b>{{order.phone}}</b>
+        </p>
+        <p>
+          Email: <b>{{order.email}}</b>
+        </p>
+        <span class="text-muted">
+          {{dateFormat(order.created_at)}}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

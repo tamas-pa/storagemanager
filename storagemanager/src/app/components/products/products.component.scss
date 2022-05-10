@@ -1,0 +1,24 @@
+.product-box {
+  box-shadow: 0 0 5px 4px #0000001a;
+
+  h3 {
+    margin-bottom: 20px;
+    span {
+      border-bottom: 2px solid #c3c3c3;
+    }
+  }
+
+  h4 {
+    //border-bottom: 2px solid #c3c3c3;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  .used-name {
+    padding: 5px;
+    background: #c2c2c2;
+    border-radius: 4px;
+    line-height: 1;
+    box-shadow: 0 0 6px -2px #00000069;
+  }
+}

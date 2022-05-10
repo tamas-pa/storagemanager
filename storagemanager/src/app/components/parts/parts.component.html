@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="mb-5">
+    <h2 class="text-center">Alkatrészek</h2>
+    <div class="text-center">
+      <button class="btn btn-primary" (click)="navigate('new-part')">Új alkatrész</button>
+    </div>
+  </div>
+  <div  *ngIf="!isLoading" class="row">
+    <div class="col-6 mb-3" *ngFor="let part of parts">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h3>{{part.name}}</h3>
+            <button (click)="deletePart(part.id)" class="btn btn-danger">Törlés</button>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span [ngClass]="part.amount > 0 ? 'text-success': 'text-danger'">{{part.amount}}</span>
+            <button (click)="navigate('/part/' + part.id)" class="btn btn-secondary">Tovább</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
